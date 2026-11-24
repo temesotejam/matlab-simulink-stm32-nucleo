@@ -1,0 +1,27 @@
+# MATLAB / Simulink generated files
+slprj/
+*_ert_rtw/
+*.slxc
+*.asv
+*.autosave
+*.m~ 
+*.mat~
+*.mex*
+*.log
+
+# Embedded compiler outputs
+*.o
+*.d
+*.dep
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
