@@ -4,7 +4,7 @@ slprj/
 *.slxc
 *.asv
 *.autosave
-*.m~ 
+*.m~
 *.mat~
 *.mex*
 *.log
