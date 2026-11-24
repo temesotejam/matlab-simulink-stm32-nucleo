@@ -115,9 +115,7 @@ stm32setup
 
 ### 4.2 MCUファミリー選択画面
 
-今回表示された画面の例：
-
-![stm32setupのMCUファミリー選択画面](images/stm32setup-family.png)
+今回の選択対象は **STM32F4xx Based MCUs** です。NUCLEO-F446REのMCUであるSTM32F446RETxがSTM32F4シリーズに属するためです。
 
 
 画面タイトル：**Select STM32 MCUs Family**
@@ -255,11 +253,11 @@ Hardware boardでSTM32F4系のターゲットを選択します。今回の画�
 
 ### 6.4 STM32CubeMXプロジェクトの作成場所
 
-Model Settingsの画面例（初期状態）：
+Model SettingsのBuild optionsには **Browse... / Create... / Launch...** の3つのボタンがあります。
 
-![SimulinkのBuild options画面。CreateとLaunchの位置を確認するための参考画像](images/build-options.png)
-
-この画像はCubeMXプロジェクト作成前の画面です。画像内の接続設定（4000 kHz / Normal / Software reset）は初期状態であり、今回最終的に使用した設定ではありません。最終値は「8. Build options」を参照してください。
+- 初回は **Create...** で新しい `.ioc` を作成する。
+- 作成後は **Launch...** でその `.ioc` をSTM32CubeMXで開く。
+- 既存の `.ioc` を使う場合は **Browse...** で選択する。
 
 
 Model Settingsの左側で次の階層を開きます。
@@ -324,11 +322,11 @@ NUCLEO-F446REの緑色LED LD2はPA5に接続されています。すでにGPIO_O
 
 ### 7.3 Advanced Settingsを開く
 
-実際に今回使用したAdvanced Settings画面：
+Advanced Settingsの画面構成（実際に確認した項目を図示）：
 
-![STM32CubeMX Advanced Settings。上側にDriver Selector、下側にGenerated Function Callsが表示されている](images/cubemx-advanced-settings.png)
+![STM32CubeMX Advanced Settingsの配置図](images/cubemx-advanced-settings-layout.svg)
 
-この画面では、**上側がDriver Selector、下側がGenerated Function Calls** です。左側のAdvanced Settingsを選んだ後、中央上部と中央下部をそれぞれ確認します。
+この画面では、**上側がDriver Selector、下側がGenerated Function Calls** です。左側のAdvanced Settingsを選んだ後、中央上部と中央下部をそれぞれ確認します。図は配置を説明する模式図で、実際の画面そのものではありません。
 
 
 1. Project Manager画面の左側にある **Advanced Settings** をクリックする。
