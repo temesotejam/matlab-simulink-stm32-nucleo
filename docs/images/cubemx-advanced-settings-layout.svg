@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="690" viewBox="0 0 1100 690">
+  <rect width="1100" height="690" fill="#f5f7fb"/>
+  <rect x="20" y="18" width="1060" height="54" rx="8" fill="#123d67"/>
+  <text x="48" y="53" fill="#ffffff" font-family="Arial,sans-serif" font-size="22" font-weight="700">STM32CubeMX — Project Manager</text>
+  <rect x="20" y="88" width="220" height="580" rx="8" fill="#2f9fd0"/>
+  <text x="48" y="132" fill="#ffffff" font-family="Arial,sans-serif" font-size="19" font-weight="700">Project Manager</text>
+  <rect x="34" y="158" width="192" height="62" rx="6" fill="#d8f0fb"/>
+  <text x="54" y="196" fill="#173b57" font-family="Arial,sans-serif" font-size="18">Project</text>
+  <rect x="34" y="230" width="192" height="62" rx="6" fill="#d8f0fb"/>
+  <text x="54" y="268" fill="#173b57" font-family="Arial,sans-serif" font-size="18">Code Generator</text>
+  <rect x="34" y="302" width="192" height="74" rx="6" fill="#ffffff" stroke="#0d5c87" stroke-width="3"/>
+  <text x="54" y="347" fill="#173b57" font-family="Arial,sans-serif" font-size="18" font-weight="700">Advanced Settings</text>
+  <text x="34" y="420" fill="#ffffff" font-family="Arial,sans-serif" font-size="14">① 上側：Driver Selector</text>
+  <text x="34" y="452" fill="#ffffff" font-family="Arial,sans-serif" font-size="14">② 下側：Generated</text>
+  <text x="53" y="473" fill="#ffffff" font-family="Arial,sans-serif" font-size="14">Function Calls</text>
+  <rect x="260" y="88" width="820" height="276" rx="8" fill="#ffffff" stroke="#b6c5d2"/>
+  <text x="282" y="122" fill="#263b4b" font-family="Arial,sans-serif" font-size="20" font-weight="700">Driver Selector</text>
+  <text x="290" y="158" fill="#607384" font-family="Arial,sans-serif" font-size="15">Peripheral</text>
+  <text x="740" y="158" fill="#607384" font-family="Arial,sans-serif" font-size="15">Driver</text>
+  <line x1="282" y1="170" x2="1058" y2="170" stroke="#d8e0e8"/>
+  <g font-family="Arial,sans-serif" font-size="18" fill="#243b4a">
+    <text x="300" y="204">GPIO</text><text x="740" y="204" font-weight="700">LL</text>
+    <text x="300" y="239">DMA</text><text x="740" y="239" font-weight="700">LL</text>
+    <text x="300" y="274">RCC</text><text x="740" y="274" font-weight="700">LL</text>
+    <text x="300" y="309">USART2</text><text x="740" y="309" font-weight="700">LL</text>
+  </g>
+  <rect x="260" y="380" width="820" height="288" rx="8" fill="#ffffff" stroke="#b6c5d2"/>
+  <text x="282" y="415" fill="#263b4b" font-family="Arial,sans-serif" font-size="20" font-weight="700">Generated Function Calls</text>
+  <rect x="280" y="432" width="780" height="42" fill="#269bd0"/>
+  <g fill="#ffffff" font-family="Arial,sans-serif" font-size="14" font-weight="700">
+    <text x="292" y="458">Generate Code</text>
+    <text x="435" y="458">Function Name</text>
+    <text x="690" y="458">Do Not Generate Function Call</text>
+    <text x="930" y="458">Visibility (Static)</text>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="15" fill="#263b4b">
+    <text x="435" y="505">MX_GPIO_Init</text>
+    <text x="435" y="544">MX_DMA_Init</text>
+    <text x="435" y="583">SystemClock_Config</text>
+    <text x="435" y="622">MX_USART2_UART_Init</text>
+  </g>
+  <g stroke="#647b8d" stroke-width="1.5" fill="#ffffff">
+    <rect x="310" y="488" width="16" height="16"/><rect x="310" y="527" width="16" height="16"/><rect x="310" y="566" width="16" height="16"/><rect x="310" y="605" width="16" height="16"/>
+    <rect x="810" y="488" width="16" height="16"/><rect x="810" y="527" width="16" height="16"/><rect x="810" y="566" width="16" height="16"/><rect x="810" y="605" width="16" height="16"/>
+    <rect x="1000" y="488" width="16" height="16"/><rect x="1000" y="527" width="16" height="16"/><rect x="1000" y="566" width="16" height="16"/><rect x="1000" y="605" width="16" height="16"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="2.5" fill="none">
+    <path d="M313 496 l4 4 l7 -9"/><path d="M313 535 l4 4 l7 -9"/><path d="M313 574 l4 4 l7 -9"/><path d="M313 613 l4 4 l7 -9"/>
+  </g>
+  <rect x="282" y="642" width="770" height="1" fill="#d8e0e8"/>
+  <text x="282" y="662" fill="#8a3d18" font-family="Arial,sans-serif" font-size="13">設定の要点：Generate Code は有効、右側2列（Do Not Generate Function Call / Visibility (Static)）はチェックなし。</text>
+</svg>
