@@ -115,16 +115,10 @@ stm32setup
 
 ### 4.2 MCUファミリー選択画面
 
-今回の選択対象は **STM32F4xx Based MCUs** です。NUCLEO-F446REのMCUであるSTM32F446RETxがSTM32F4シリーズに属するためです。
-
-
 画面タイトル：**Select STM32 MCUs Family**
 
-今回選択した項目：
-
-- `STM32F4xx Based MCUs`
-
-NUCLEO-F446REのMCU STM32F446REはSTM32F4シリーズです。G4など別シリーズを使わない場合は、F4だけを選択します。
+- **STM32F4xx Based MCUs** にチェックを入れる。
+- 今回はNUCLEO-F446RE（STM32F446RETx）だけを使うため、他のファミリーは選択しない。
 
 ### 4.3 Armclang Compiler
 
@@ -253,13 +247,6 @@ Hardware boardでSTM32F4系のターゲットを選択します。今回の画�
 
 ### 6.4 STM32CubeMXプロジェクトの作成場所
 
-Model SettingsのBuild optionsには **Browse... / Create... / Launch...** の3つのボタンがあります。
-
-- 初回は **Create...** で新しい `.ioc` を作成する。
-- 作成後は **Launch...** でその `.ioc` をSTM32CubeMXで開く。
-- 既存の `.ioc` を使う場合は **Browse...** で選択する。
-
-
 Model Settingsの左側で次の階層を開きます。
 
 ```text
@@ -268,13 +255,15 @@ Hardware Implementation
        └─ Build options
 ```
 
-Build options画面の中央付近に次のボタンがあります。
+画面中央に次の3つのボタンがあります。
 
-- **Browse...**: 既存のSTM32CubeMXプロジェクトを選ぶ。
-- **Create...**: 新しいSTM32CubeMXプロジェクトを作る。
-- **Launch...**: 選択済みプロジェクトをSTM32CubeMXで開く。
+| ボタン | 用途 | 今回の操作 |
+|---|---|---|
+| Browse... | 既存の `.ioc` を選ぶ | 初回は使わない |
+| Create... | 新しいSTM32CubeMXプロジェクトを作る | **最初にクリック** |
+| Launch... | 選択済み `.ioc` をSTM32CubeMXで開く | Create後にクリック |
 
-初回は **Create...** をクリックします。
+
 
 ### 6.5 Createで指定する内容
 
@@ -451,8 +440,8 @@ Simulinkモデルの空白部分をダブルクリックして検索欄を出し
 
 ### 10.2 Digital Port Writeを配置
 
-1. モデルキャンバスの空白部分をダブルクリックするか、Library Browserを開く。
-2. `Digital Port Write` と検索する。
+1. モデルキャンバスの空白部分をダブルクリックするか、MATLABコマンドウィンドウで `slLibraryBrowser` を実行してLibrary Browserを開く。
+2. 検索欄で `Digital Port Write` と検索する。
 3. 次のライブラリにあるブロックを選ぶ。
 
 ```text
@@ -461,12 +450,7 @@ STM32 Microcontroller Blockset
        └─ Digital Port Write
 ```
 
-MathWorksのR2026bブロックリファレンスでも、Digital Port WriteはSTM32F4xx Based Boardsのライブラリに掲載されています。
-
-
-Simulink Library Browserを開き、検索欄で **Digital Port Write** を検索します。
-
-STM32 Microcontroller Blocksetの **STM32F4xx Based Boards** 向けDigital Port Writeを選択します。一般的なSimulinkブロックと取り違えないように、STM32向けブロックであることを確認します。
+**注意：** 同名の一般ブロックではなく、STM32 Microcontroller Blockset内のSTM32F4xx用ブロックを選択します。MathWorksのR2026bブロックリファレンスにも、このライブラリ階層が掲載されています。
 
 今回の設定：
 
@@ -475,6 +459,7 @@ STM32 Microcontroller Blocksetの **STM32F4xx Based Boards** 向けDigital Port 
 | Port name | GPIOA |
 | Pin number | 5 |
 | Access port pins as array | チェックなし |
+| Enable simulation port | チェックなし（既定値） |
 
 ### 10.3 ブロック接続
 
