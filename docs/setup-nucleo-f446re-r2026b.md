@@ -255,6 +255,10 @@ Hardware Implementation
        └─ Build options
 ```
 
+![Simulink Model SettingsのBuild options画面の配置図](images/build-options-layout.svg)
+
+図は操作場所を示す模式図です。実際の画面では、左側のGroupsでBuild optionsを選ぶと、右側に設定項目とBrowse / Create / Launchが表示されます。
+
 画面中央に次の3つのボタンがあります。
 
 | ボタン | 用途 | 今回の操作 |
