@@ -24,6 +24,13 @@ No STM32 MCU connected.
 
 ## 2. USB ケーブル交換
 
+最初のエラーは次のとおり。
+
+```text
+No debug probe detected.
+```
+
+
 最初の STM32CubeProgrammer では次の表示だった。
 
 ```text
@@ -56,13 +63,21 @@ Windows では ST-LINK の複合 USB デバイスと VCP が認識されてい�
 
 ## 4. ST-LINK 更新ツールでのエラー
 
+USBケーブル交換後、WindowsではST-LINK関連デバイスが認識されるようになったが、STM32CubeProgrammer付属のST-Link UpgradeではUSB通信エラーが続いた。
+
+確認されたエラー：
+
+- `DEV_USB_COMM_ERR`
+- `Error connecting to device ST-LINK/V2-1 (error 0x21)`
+
+
 STM32CubeProgrammer 付属の更新ツールでは、次のエラーが発生した。
 
 ```text
 Error connecting to device ST-LINK/V2-1 (error 0x21)
 ```
 
-その後、単体配布版の **ST-Link Upgrade 3.18.12** を使用すると ST-LINK と通信でき、ファームウェア情報を読み出せた。
+その後、STSW-LINK007の単体配布版 **ST-Link Upgrade** を使用すると ST-LINK と通信でき、ファームウェア情報を読み出せた。実行ファイル自体のバージョン番号は画面上で記録していないため、この文書では固定しない。
 
 STM32CubeProgrammer付属の更新画面では `error 0x21` が続いたが、単体版の更新画面では現在のファームウェアと更新先を表示できた。
 
@@ -72,7 +87,7 @@ STM32CubeProgrammer付属の更新画面では `error 0x21` が続いたが、�
 - Update to Firmware: `V2J49.M36`
 - Device type: `STM32 Debug + Mass storage + VCP`
 
-`Change Type` は有効にせず、元のデバイスタイプを維持して更新した。
+`Change Type` のチェック欄が表示され、選択されていたタイプは元と同じ `STM32 Debug + Mass storage + VCP` だった。更新後もこのデバイスタイプが維持された。
 
 
 ### ファームウェア更新
