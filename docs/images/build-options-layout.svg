@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+  <rect width="1100" height="650" fill="#f5f7fb"/>
+  <rect x="18" y="18" width="1064" height="50" rx="8" fill="#123d67"/>
+  <text x="42" y="50" fill="#fff" font-family="Arial,sans-serif" font-size="20" font-weight="700">Simulink Model Settings — Target hardware resources</text>
+  <rect x="18" y="84" width="270" height="545" rx="8" fill="#fff" stroke="#bdc9d4"/>
+  <text x="40" y="119" fill="#334b5c" font-family="Arial,sans-serif" font-size="17" font-weight="700">Groups</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#334b5c">
+    <text x="44" y="164">Build options</text>
+    <text x="44" y="206">Clocking</text>
+    <text x="44" y="248">Connectivity</text>
+    <text x="44" y="290">UART/USART</text>
+    <text x="44" y="332">Ethernet</text>
+    <text x="44" y="374">ADC1</text>
+    <text x="44" y="416">ADC2</text>
+    <text x="44" y="458">SPI</text>
+    <text x="44" y="500">Timers</text>
+    <text x="44" y="542">CAN</text>
+  </g>
+  <rect x="30" y="136" width="246" height="43" rx="5" fill="#d9f0fb" stroke="#1787b7" stroke-width="2"/>
+  <rect x="308" y="84" width="774" height="545" rx="8" fill="#fff" stroke="#bdc9d4"/>
+  <text x="334" y="120" fill="#334b5c" font-family="Arial,sans-serif" font-size="18" font-weight="700">Build options</text>
+  <g font-family="Arial,sans-serif" font-size="15" fill="#425a6b">
+    <text x="338" y="162">Build action</text><text x="338" y="202">Runtime library</text>
+    <text x="338" y="242">Floating-point ABI</text>
+    <text x="338" y="282">STM32CubeMX project file</text>
+    <text x="338" y="392">Connectivity mode</text><text x="338" y="432">Connection port</text>
+    <text x="338" y="472">Frequency (kHz)</text><text x="338" y="512">Mode</text><text x="338" y="552">Reset mode</text>
+  </g>
+  <g fill="#fff" stroke="#aebdca">
+    <rect x="540" y="142" width="500" height="28" rx="4"/>
+    <rect x="540" y="182" width="500" height="28" rx="4"/>
+    <rect x="540" y="222" width="500" height="28" rx="4"/>
+    <rect x="540" y="262" width="500" height="28" rx="4"/>
+    <rect x="540" y="382" width="500" height="28" rx="4"/>
+    <rect x="540" y="422" width="500" height="28" rx="4"/>
+    <rect x="540" y="462" width="500" height="28" rx="4"/>
+    <rect x="540" y="502" width="500" height="28" rx="4"/>
+    <rect x="540" y="542" width="500" height="28" rx="4"/>
+  </g>
+  <g fill="#2f4c60" font-family="Arial,sans-serif" font-size="14">
+    <text x="552" y="161">Build, load and run</text><text x="552" y="201">Reduced C</text>
+    <text x="552" y="241">hard</text><text x="552" y="281">[ .ioc file path ]</text>
+    <text x="552" y="401">st-link</text><text x="552" y="441">SWD</text>
+    <text x="552" y="481">100</text><text x="552" y="521">Under reset</text><text x="552" y="561">Hardware reset</text>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="14" font-weight="700">
+    <rect x="540" y="300" width="105" height="32" rx="5" fill="#edf3f8" stroke="#91a5b4"/>
+    <text x="592" y="321" text-anchor="middle" fill="#29485d">Browse...</text>
+    <rect x="655" y="300" width="105" height="32" rx="5" fill="#d9f0fb" stroke="#1687b8" stroke-width="2"/>
+    <text x="707" y="321" text-anchor="middle" fill="#145d80">Create...</text>
+    <rect x="770" y="300" width="105" height="32" rx="5" fill="#d9f0fb" stroke="#1687b8" stroke-width="2"/>
+    <text x="822" y="321" text-anchor="middle" fill="#145d80">Launch...</text>
+  </g>
+  <rect x="892" y="296" width="148" height="40" rx="6" fill="#e5f7ed" stroke="#22965b"/>
+  <text x="966" y="312" text-anchor="middle" fill="#176a43" font-family="Arial,sans-serif" font-size="12" font-weight="700">初回：Create...</text>
+  <text x="966" y="328" text-anchor="middle" fill="#176a43" font-family="Arial,sans-serif" font-size="12" font-weight="700">作成後：Launch...</text>
+  <text x="334" y="602" fill="#8a3d18" font-family="Arial,sans-serif" font-size="13">図は操作場所を示す模式図。最終的な接続設定は100 kHz / Under reset / Hardware reset。</text>
+</svg>
