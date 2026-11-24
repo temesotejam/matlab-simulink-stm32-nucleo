@@ -33,6 +33,15 @@ MATLAB / Simulink から STM32 マイコン向けの制御モデルを作成し�
 - [NUCLEO-F446RE の環境構築・LED 点滅手順](docs/setup-nucleo-f446re-r2026b.md)
 - [トラブルシューティングと解決記録](docs/troubleshooting.md)
 
+## 初めて再現する場合
+
+1. まず [セットアップ手順書](docs/setup-nucleo-f446re-r2026b.md) の「0. 全体の作業順序」を読む。
+2. 「画面・設定場所の早見表」で操作する画面を確認する。
+3. セットアップ手順書を上から順に進める。
+4. 接続エラーが発生した場合は [トラブルシューティング](docs/troubleshooting.md) を参照する。
+
+設定画面の参考画像は `docs/images/` に保存しています。
+
 ## ディレクトリ構成
 
 ```text
