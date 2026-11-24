@@ -40,7 +40,7 @@ MATLAB / Simulink から STM32 マイコン向けの制御モデルを作成し�
 3. セットアップ手順書を上から順に進める。
 4. 接続エラーが発生した場合は [トラブルシューティング](docs/troubleshooting.md) を参照する。
 
-設定画面の参考画像は `docs/images/` に保存しています。
+STM32CubeMX Advanced Settingsの画面配置図は `docs/images/` に保存しています。
 
 ## ディレクトリ構成
 
@@ -50,7 +50,9 @@ MATLAB / Simulink から STM32 マイコン向けの制御モデルを作成し�
 ├── .gitignore
 ├── docs/
 │   ├── setup-nucleo-f446re-r2026b.md
-│   └── troubleshooting.md
+│   ├── troubleshooting.md
+│   └── images/
+│       └── cubemx-advanced-settings-layout.svg
 ├── models/
 │   └── README.md
 └── cubemx/
