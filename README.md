@@ -52,6 +52,7 @@ STM32CubeMX Advanced Settingsの画面配置図は `docs/images/` に保存し�
 │   ├── setup-nucleo-f446re-r2026b.md
 │   ├── troubleshooting.md
 │   └── images/
+│       ├── build-options-layout.svg
 │       └── cubemx-advanced-settings-layout.svg
 ├── models/
 │   └── README.md
