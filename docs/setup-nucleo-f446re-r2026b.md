@@ -14,6 +14,24 @@
 
 ## 0. 全体の作業順序
 
+### 画面・設定場所の早見表
+
+| 目的 | 開く場所・操作 |
+|---|---|
+| MATLABのバージョン・製品確認 | MATLABコマンドウィンドウ → `version -release` / `ver` |
+| STM32ツールの導入 | MATLABコマンドウィンドウ → `stm32setup` |
+| Simulinkを開く | MATLABコマンドウィンドウ → `simulink` |
+| モデル設定 | Simulinkモデル画面 → `Ctrl + E` |
+| STM32ボード選択 | Model Settings → Hardware Implementation |
+| CubeMXプロジェクト作成・起動 | Model Settings → Hardware Implementation → Target hardware resources → Build options → Create... / Launch... |
+| CubeMXのGPIO設定 | STM32CubeMX → Pinout & Configuration |
+| CubeMXのmain関数設定 | STM32CubeMX → Project Manager → Project |
+| CubeMXのLL・初期化関数設定 | STM32CubeMX → Project Manager → Advanced Settings |
+| Simulinkのブロック検索 | モデルキャンバスをダブルクリック、またはLibrary Browser |
+| Digital Port Write | STM32 Microcontroller Blockset → STM32F4xx Based Boards |
+| LED点滅モデルの書き込み | Simulinkモデル → Hardwareタブ → Build, Deploy & Start |
+
+
 1. MATLAB / Simulink / STM32用製品をインストールする。
 2. ライセンスとインストール済み製品を確認する。
 3. `stm32setup` を実行し、STM32F4向けツールを準備する。
@@ -96,6 +114,11 @@ stm32setup
 ```
 
 ### 4.2 MCUファミリー選択画面
+
+今回表示された画面の例：
+
+![stm32setupのMCUファミリー選択画面](images/stm32setup-family.png)
+
 
 画面タイトル：**Select STM32 MCUs Family**
 
@@ -232,6 +255,13 @@ Hardware boardでSTM32F4系のターゲットを選択します。今回の画�
 
 ### 6.4 STM32CubeMXプロジェクトの作成場所
 
+Model Settingsの画面例（初期状態）：
+
+![SimulinkのBuild options画面。CreateとLaunchの位置を確認するための参考画像](images/build-options.png)
+
+この画像はCubeMXプロジェクト作成前の画面です。画像内の接続設定（4000 kHz / Normal / Software reset）は初期状態であり、今回最終的に使用した設定ではありません。最終値は「8. Build options」を参照してください。
+
+
 Model Settingsの左側で次の階層を開きます。
 
 ```text
@@ -293,6 +323,13 @@ NUCLEO-F446REの緑色LED LD2はPA5に接続されています。すでにGPIO_O
 | Generate under root | チェックを外す |
 
 ### 7.3 Advanced Settingsを開く
+
+実際に今回使用したAdvanced Settings画面：
+
+![STM32CubeMX Advanced Settings。上側にDriver Selector、下側にGenerated Function Callsが表示されている](images/cubemx-advanced-settings.png)
+
+この画面では、**上側がDriver Selector、下側がGenerated Function Calls** です。左側のAdvanced Settingsを選んだ後、中央上部と中央下部をそれぞれ確認します。
+
 
 1. Project Manager画面の左側にある **Advanced Settings** をクリックする。
 2. 画面上側の **Driver Selector** を確認する。
@@ -416,6 +453,19 @@ Simulinkモデルの空白部分をダブルクリックして検索欄を出し
 
 ### 10.2 Digital Port Writeを配置
 
+1. モデルキャンバスの空白部分をダブルクリックするか、Library Browserを開く。
+2. `Digital Port Write` と検索する。
+3. 次のライブラリにあるブロックを選ぶ。
+
+```text
+STM32 Microcontroller Blockset
+  └─ STM32F4xx Based Boards
+       └─ Digital Port Write
+```
+
+MathWorksのR2026bブロックリファレンスでも、Digital Port WriteはSTM32F4xx Based Boardsのライブラリに掲載されています。
+
+
 Simulink Library Browserを開き、検索欄で **Digital Port Write** を検索します。
 
 STM32 Microcontroller Blocksetの **STM32F4xx Based Boards** 向けDigital Port Writeを選択します。一般的なSimulinkブロックと取り違えないように、STM32向けブロックであることを確認します。
@@ -496,7 +546,28 @@ NUCLEO-F446RE LD2
 
 現時点では、この2つの実ファイルはまだリポジトリに登録されていません。実際に使用したファイルをMATLAB / STM32CubeMXから保存し、別途コミットしてください。
 
-## 15. 次の実験
+## 15. 公式資料
+
+- MathWorks: [Get Started with STMicroelectronics STM32 Processor Based Boards](https://www.mathworks.com/help/stm32b/ug/Getting-started-stm32cubemx.html)
+- MathWorks: [Digital Port Write block reference (R2026b)](https://www.mathworks.com/help/stm32b/ref/digitalportwrite.html)
+- MathWorks: [STM32 Microcontroller Blockset - System Core](https://www.mathworks.com/help/stm32b/system-core.html)
+- STMicroelectronics: [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html)
+- STMicroelectronics: [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html)
+- STMicroelectronics: [ST-LINK USB driver STSW-LINK009](https://www.st.com/en/development-tools/stsw-link009.html)
+- STMicroelectronics: [ST-LINK firmware upgrade utility STSW-LINK007](https://www.st.com/en/development-tools/stsw-link007.html)
+
+## 16. この手順書の再現範囲と未登録ファイル
+
+この手順書は、今回ユーザー環境で成功したNUCLEO-F446REのLED点滅を、同じ対象ボードとR2026b系の環境で最初から再現するためのものです。
+
+ただし、現時点では次の実ファイルはGitHubにまだ登録されていません。
+
+- `models/nucleo_f446re_blink.slx`
+- `cubemx/nucleo_f446re_blink.ioc`
+
+したがって、現状は手順書を読みながら新規作成する形式です。実ファイルを登録した後は、同じモデルを開いて書き込むだけの再現方法も提供できます。
+
+## 17. 次の実験
 
 LED点滅モデルを基準として複製し、機能を一つずつ追加します。
 
