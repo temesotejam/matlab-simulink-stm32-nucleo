@@ -1,19 +1,18 @@
 # STM32CubeMX Projects
 
-STM32CubeMX の `.ioc` 設定ファイルを保存するディレクトリです。
+NUCLEO-F446RE の STM32CubeMX `.ioc` 設定ファイルを保存・配布するためのディレクトリです。
 
-NUCLEO-F446RE の初回 LED 点滅プロジェクト：
+実際に使用した `nucleo_f446re_blink.ioc` は、リポジトリの次の配布 ZIP に含めています。
 
-```text
-nucleo_f446re_blink.ioc
-```
+- [NUCLEO-F446RE LED 点滅プロジェクト一式（ZIP）](../downloads/nucleo_f446re_blink_project_r2026b.zip)
 
 主な設定：
 
-- Board: NUCLEO-F446RE
-- MCU: STM32F446RETx
-- LD2: PA5 / GPIO_Output
+- Board: `NUCLEO-F446RE`
+- MCU: `STM32F446RETx`
+- LD2: `PA5 / GPIO_Output`
+- Project Manager: `Do not generate the main()` 有効
+- Project Manager: `Generate under root` 無効
+- Driver Selector: GPIO / DMA / RCC / USART2 は LL
 
-現時点では実際の `.ioc` ファイルは未登録です。STM32CubeMX で保存したファイルをこのディレクトリに追加してください。
-
-CubeMX が生成したファイル群のうち、再現・ビルドに必要なものは内容を確認してから管理対象に追加します。ライセンス対象のツール本体や個人情報は登録しません。
+Simulink モデルから相対パスで参照されます。ZIP 内の `models/` と `cubemx/` のフォルダー構成を維持してください。

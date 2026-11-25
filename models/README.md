@@ -1,15 +1,17 @@
 # Simulink Models
 
-動作確認に使用した Simulink モデルを保存するディレクトリです。
+NUCLEO-F446RE の LED 点滅モデルを保存・配布するためのディレクトリです。
 
-初回 LED 点滅モデルは次の名前で保存する想定です。
+実際に使用したモデル `nucleo_f446re_blink.slx` は、リポジトリの次の配布 ZIP に含めています。
 
-```text
-nucleo_f446re_blink.slx
-```
+- [NUCLEO-F446RE LED 点滅プロジェクト一式（ZIP）](../downloads/nucleo_f446re_blink_project_r2026b.zip)
 
-このモデルは NUCLEO-F446RE の LD2（PA5）を 1秒 ON / 1秒 OFF で点滅させるものです。
+モデルの仕様：
 
-現時点では実際の `.slx` ファイルは未登録です。MATLAB から保存したファイルをこのディレクトリに追加してください。
+- 出力先: NUCLEO-F446RE の LD2（PA5）
+- ブロック: Pulse Generator → STM32 Microcontroller Blockset / Digital Port Write
+- 周期: 2 秒（1 秒 ON / 1 秒 OFF）
+- Sample time: 0.01 秒
+- Build action: Build, load and run
 
 Simulink のコード生成キャッシュやビルド出力（`slprj/`、`*_ert_rtw/`、`*.slxc` など）は原則としてコミットしません。

@@ -22,13 +22,13 @@
 - [13. ビルド結果](#13-ビルド結果)
 - [14. 実ファイルの保存場所](#14-実ファイルの保存場所)
 - [15. 公式資料](#15-公式資料)
-- [16. この手順書の再現範囲と未登録ファイル](#16-この手順書の再現範囲と未登録ファイル)
+- [16. この手順書の再現範囲と配布プロジェクト](#16-この手順書の再現範囲と配布プロジェクト)
 - [17. 次の実験](#17-次の実験)
 
 > **この文書の範囲**
 > - 実際に今回使用した NUCLEO-F446RE の構成と設定値を記録します。
 > - メニュー階層、ボタン名、入力値をできるだけ具体的に記載します。
-> - 実際の `.slx` と `.ioc` ファイルは、まだこのリポジトリに添付されていません。後から追加が必要です。
+> - 実際に使用した `.slx` と `.ioc` を、ダウンロード用 ZIP にまとめて登録しています。
 > - MathWorks / ST の製品画面はリリースで変わる場合があります。画面名が少し異なる場合は、同じ機能名を探してください。
 
 ---
@@ -545,14 +545,23 @@ NUCLEO-F446RE LD2
 
 ## 14. 実ファイルの保存場所
 
-このリポジトリ内では次の場所に保存します。
+実際に使用した Simulink モデルと STM32CubeMX 設定は、次の ZIP にまとめています。
 
-| ファイル | GitHub上の保存先 |
-|---|---|
-| Simulinkモデル | `models/nucleo_f446re_blink.slx` |
-| STM32CubeMX設定 | `cubemx/nucleo_f446re_blink.ioc` |
+- [NUCLEO-F446RE LED 点滅プロジェクト一式（ZIP）](../downloads/nucleo_f446re_blink_project_r2026b.zip)
 
-現時点では、この2つの実ファイルはまだリポジトリに登録されていません。実際に使用したファイルをMATLAB / STM32CubeMXから保存し、別途コミットしてください。
+ZIP を展開すると、次の構成になります。
+
+```text
+nucleo_f446re_blink_project_r2026b/
+├── README.md
+├── SHA256SUMS.txt
+├── models/
+│   └── nucleo_f446re_blink.slx
+└── cubemx/
+    └── nucleo_f446re_blink.ioc
+```
+
+Simulink モデル内の CubeMX project file 参照は、PC 固有の絶対パスではなく `..\\cubemx\\nucleo_f446re_blink.ioc` という相対パスです。ZIP 内の `models/` と `cubemx/` の位置関係を維持して展開してください。開いた際に `.ioc` が未解決の場合は、Model Settings → Hardware Implementation → Target hardware resources → Build options → Browse... から `.ioc` を再指定します。
 
 ## 15. 公式資料
 
@@ -564,16 +573,28 @@ NUCLEO-F446RE LD2
 - STMicroelectronics: [ST-LINK USB driver STSW-LINK009](https://www.st.com/en/development-tools/stsw-link009.html)
 - STMicroelectronics: [ST-LINK firmware upgrade utility STSW-LINK007](https://www.st.com/en/development-tools/stsw-link007.html)
 
-## 16. この手順書の再現範囲と未登録ファイル
+## 16. この手順書の再現範囲と配布プロジェクト
 
-この手順書は、今回ユーザー環境で成功したNUCLEO-F446REのLED点滅を、同じ対象ボードとR2026b系の環境で最初から再現するためのものです。
-
-ただし、現時点では次の実ファイルはGitHubにまだ登録されていません。
+ダウンロード用 ZIP には、今回使用した次の実ファイルを含めています。
 
 - `models/nucleo_f446re_blink.slx`
 - `cubemx/nucleo_f446re_blink.ioc`
 
-したがって、現状は手順書を読みながら新規作成する形式です。実ファイルを登録した後は、同じモデルを開いて書き込むだけの再現方法も提供できます。
+MATLAB / Simulink と STM32 用ツールの環境構築が済んでいる PC では、ZIP を展開して `.slx` を開き、必要に応じて `.ioc` の参照先を確認した後、Hardware タブの **Build, Deploy & Start** を実行することで、モデルのビルド・書き込み・実行を行えます。
+
+再現時の前提：
+
+- MATLAB / Simulink R2026b と STM32 Microcontroller Blockset が利用可能であること。
+- GNU Tools for STM32、STM32CubeMX、STM32CubeProgrammer が導入されていること。
+- 対象ボードが NUCLEO-F446RE であること。
+- ST-LINK が CN1 経由で PC に接続され、他の ST-LINK 利用アプリが終了していること。
+- ZIP 内の `models/` と `cubemx/` のフォルダー構成を維持すること。
+
+このプロジェクトは上記の NUCLEO-F446RE と R2026b 環境での動作を対象としています。別の STM32 ボードや異なる MATLAB リリースでの動作は、この記録だけでは保証しません。
+
+このモデルでは、今回の初回実機書き込み時と同じく `Erase all flash memory before programming` が有効です。Flash 内に残したいプログラムやデータがある場合は、書き込み前に Build options で設定を確認してください。
+
+コンパイル済み `.elf` / `.hex` / `.bin` は ZIP に含めていません。Simulink が各 PC の GNU Toolchain でビルドし、ST-LINK 経由で書き込みます。
 
 ## 17. 次の実験
 
